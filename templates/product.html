@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+</head>
+<body>
+
+    {% if show_details %}
+
+    <h1>Product Details</h1>
+
+    <img
+        src="{{ product.image_url }}"
+        alt="{{ product.name }}"
+        width="250"
+        height="250"
+    >
+
+    <h2>{{ product.name }}</h2>
+
+    <p>{{ product.description }}</p>
+
+    <h3>Price: ₹{{ product.price }}</h3>
+
+    <p>Product ID: {{ product.id }}</p>
+
+    <a href="/products">Back to Products</a>
+
+    {% else %}
+
+    <h1>Add New Product</h1>
+
+    <form action="/add-product" method="post">
+
+        <label for="name">Product Name:</label>
+
+        <input
+            type="text"
+            id="name"
+            name="name"
+            required
+        >
+
+        <br><br>
+
+        <label for="description">Description:</label>
+
+        <textarea
+            id="description"
+            name="description"
+            required
+        ></textarea>
+
+        <br><br>
+
+        <label for="price">Price:</label>
+
+        <input
+            type="number"
+            id="price"
+            name="price"
+            min="0"
+            step="0.01"
+            required
+        >
+
+        <br><br>
+
+        <label for="image_url">Image URL:</label>
+
+        <input
+            type="url"
+            id="image_url"
+            name="image_url"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">Save Product</button>
+
+    </form>
+
+    <br>
+
+    <a href="/products">Back to Products</a>
+
+    {% endif %}
+
+</body>
+</html>
