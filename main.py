@@ -13,7 +13,7 @@ def get_db_connection():
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Vyshu@2408",
+        password="enter_your_password",
         database="product"
     )
     return connection
